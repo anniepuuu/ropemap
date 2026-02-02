@@ -1,7 +1,17 @@
+:root {
+    --primary-dark-red: #8b0000;
+    --hover-red: #b30000;
+    --dark-text: #2d3436;
+    --light-text: #636e72;
+    --white: #ffffff;
+    --shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
 body {
     margin: 0;
     padding: 0;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'Inter', -apple-system, sans-serif;
+    color: var(--dark-text);
 }
 
 #map {
@@ -9,41 +19,62 @@ body {
     width: 100%;
 }
 
-/* Styling für das Popup-Fenster */
+/* Popup-Design */
+.leaflet-popup-content-wrapper {
+    border-radius: 12px !important;
+    padding: 5px;
+    box-shadow: var(--shadow) !important;
+    border: none !important;
+}
+
 .popup-content {
     min-width: 200px;
+    padding: 10px;
 }
 
 .popup-content h3 {
-    margin: 0 0 8px 0;
-    color: #2c3e50;
-    border-bottom: 2px solid #3498db;
-    padding-bottom: 5px;
+    margin: 0 0 10px 0;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--dark-text);
+    border-bottom: 2px solid var(--primary-dark-red);
+    display: inline-block;
+    padding-bottom: 2px;
 }
 
 .popup-content p {
-    margin: 5px 0;
-    line-height: 1.4;
-    color: #333;
+    margin: 6px 0;
+    font-size: 0.9rem;
+    color: var(--light-text);
+    line-height: 1.5;
 }
 
+/* Button-Styling */
 .social-links {
-    margin-top: 12px;
-    display: flex;
-    gap: 10px;
+    margin-top: 15px;
 }
 
 .social-links a {
+    display: inline-block;
     text-decoration: none;
-    font-size: 12px;
-    font-weight: bold;
-    color: #fff;
-    background-color: #3498db;
-    padding: 4px 8px;
-    border-radius: 4px;
-    transition: background 0.3s;
+    background-color: var(--primary-dark-red);
+    color: var(--white);
+    padding: 8px 16px;
+    border-radius: 6px;
+    font-size: 11px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    transition: all 0.2s ease;
 }
 
 .social-links a:hover {
-    background-color: #2980b9;
+    background-color: var(--hover-red);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 10px rgba(139, 0, 0, 0.25);
+}
+
+/* Entfernt das blaue Standard-Leuchten von Leaflet-Elementen */
+.leaflet-container a.leaflet-popup-close-button {
+    color: #ccc !important;
 }
