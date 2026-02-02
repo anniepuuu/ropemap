@@ -19,7 +19,7 @@ const locations = [
         name: "Fesseltreff München II",
         coords: [48.1351, 11.6821],
         desc: "Fesseltreff II in München.",
-        contact: "mustermail@mail.de",
+        contact: "fesseltreff-muenchen@fesseltreff.de",
         social: { Fetlife: "#" }
     }
     ,
@@ -27,7 +27,47 @@ const locations = [
         name: "Fesseltreff Augsburg",
         coords: [48.3705, 10.8982],
         desc: "Fesseltreff in Augsburg.",
-        contact: "mustermail@mail.de",
+        contact: "fesseltreff-augsburg@mail.de",
+        social: { Fetlife: "#" }
+    }
+     ,
+    {
+        name: "Fesseltreff Ulm",
+        coords: [48.4011, 9.9872],
+        desc: "Fesseltreff in Ulm.",
+        contact: "fesseltreff-ulm@mail.de",
+        social: { Fetlife: "#" }
+    }
+      ,
+    {
+        name: "Fesseltreff Köln",
+        coords: [50.9375, 6.9603],
+        desc: "Fesseltreff in Köln.",
+        contact: "fesseltreff-koeln@mail.de",
+        social: { Fetlife: "#" }
+    }
+        ,
+    {
+        name: "Fesseltreff Hamburg",
+        coords: [53.5511, 10.0066],
+        desc: "Fesseltreff in Hamburg.",
+        contact: "fesseltreff-hamburg@mail.de",
+        social: { Fetlife: "#" }
+    }
+    ,
+    {
+        name: "Fesseltreff Wien",
+        coords: [48.2082, 16.3738],
+        desc: "Fesseltreff in Wien.",
+        contact: "fesseltreff-wien@mail.de",
+        social: { Fetlife: "#" }
+    }
+    ,
+    {
+        name: "Fesseltreff Zürich",
+        coords: [47.3769, 8.5417],
+        desc: "Fesseltreff in Zürich.",
+        contact: "fesseltreff-zuerich@mail.de",
         social: { Fetlife: "#" }
     }
 ];
