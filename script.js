@@ -24,7 +24,7 @@ const locations = [
         name: "Kinky-München Fesseltreff",
         coords: [48.1351, 11.5820],
         desc: "Fesseltreff veranstaltet von Kinky-München.",
-        contact: "kontakt@kinky-muenchen.de",
+        contact: "kontakt@jungesmuenchen.org",
         social: { Fetlife: "#" }
     }
     ,
