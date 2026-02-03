@@ -99,7 +99,7 @@ body, html {
 }
 
 
-.contact-content {
+.contact-content.show {
     display: block;
 }
 
