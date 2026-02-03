@@ -30,11 +30,11 @@ const locations = [
     ,
     {
 
-        name: "Fesseltreff München II",
+        name: "Fesseltreff München",
 
         coords: [48.1351, 11.6821],
 
-        desc: "Fesseltreff II in München.",
+        desc: "Fesseltreff in München.",
 
         contact: "fesseltreff-muenchen@fesseltreff.de",
 
@@ -116,7 +116,7 @@ const locations = [
 
         desc: "Fesseltreff in Wien.",
 
-        contact: "fesseltreff-wien@mail.de",
+        contact: "fesseltreff-wien@mail.at",
 
         social: { Fetlife: "#" }
 
@@ -132,7 +132,7 @@ const locations = [
 
         desc: "Fesseltreff in Zürich.",
 
-        contact: "fesseltreff-zuerich@mail.de",
+        contact: "fesseltreff-zuerich@mail.ch",
 
         social: { Fetlife: "#" }
 
@@ -161,3 +161,23 @@ locations.forEach(loc => {
 
     marker.bindPopup(content);
 });
+function openModal(id) {
+    const modal = document.getElementById(id);
+    if (modal) {
+        modal.style.display = "flex";
+    }
+}
+
+function closeModal(id) {
+    const modal = document.getElementById(id);
+    if (modal) {
+        modal.style.display = "none";
+    }
+}
+
+// Schließen beim Klick außerhalb der Box
+window.onclick = function(event) {
+    if (event.target.classList.contains('modal')) {
+        event.target.style.display = "none";
+    }
+}

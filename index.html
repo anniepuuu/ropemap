@@ -3,25 +3,59 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The RopeMap</title>
+    <title>The RopeMap - Test</title>
     
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<h1 class="main-title">The RopeMap</h1>
+<h1 class="main-title">The RopeMap - Test</h1>
 
 <div class="contact-menu">
     <button class="contact-btn">Kontakt</button>
     <div class="contact-content">
-        <div class="contact-content-inner"> <a href="#">E-Mail</a>
+        <div class="contact-content-inner"> 
+            <a href="javascript:void(0)" onclick="openModal('modal-kontakt')">E-Mail</a>
+            <a href="javascript:void(0)" onclick="openModal('modal-impressum')">Impressum</a>
+        </div>
+    </div>
+</div>
+
+<div id="modal-kontakt" class="modal">
+    <div class="modal-content">
+        <span class="close-btn" onclick="closeModal('modal-kontakt')">&times;</span>
+        <h1 class="page-title">Kontakt</h1>
+        <form class="contact-form">
+            <div class="form-group">
+                <label>Name</label>
+                <input type="text" placeholder="Dein Name" required>
+            </div>
+            <div class="form-group">
+                <label>E-Mail</label>
+                <input type="email" placeholder="Deine E-Mail" required>
+            </div>
+            <div class="form-group">
+                <label>Nachricht</label>
+                <textarea rows="4" placeholder="Deine Nachricht..." required></textarea>
+            </div>
+            <button type="submit" class="submit-btn">Absenden</button>
+        </form>
+    </div>
+</div>
+
+<div id="modal-impressum" class="modal">
+    <div class="modal-content">
+        <span class="close-btn" onclick="closeModal('modal-impressum')">&times;</span>
+        <h1 class="page-title">Impressum</h1>
+        <div class="legal-text">
+            <p><strong>Angaben gemäß § 5 TMG:</strong></p>
+            <p>Max Mustermann<br>Musterstraße 1<br>12345 Musterstadt</p>
         </div>
     </div>
 </div>
 
 <div id="map"></div>
-
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
     <script src="script.js"></script>
 </body>

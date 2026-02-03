@@ -1,82 +1,28 @@
+/* 1. VARIABLEN & BASIS */
 :root {
     --primary-red: #8b0000;
     --dark-blue: #2d3436;
     --text-main: #636e72;
-    --bg-light: #ffffff;
+    --bg-light: #f8f9fa;
     --shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
 }
 
-body {
+body, html {
     margin: 0;
     padding: 0;
-    font-family: 'Inter', 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-    background-color: #f8f9fa;
+    height: 100%;
+    font-family: 'Inter', sans-serif;
+    background-color: var(--bg-light);
+    overflow: hidden; /* Verhindert Scrollen der Hauptseite hinter dem Modal */
 }
 
+/* 2. KARTE & TITEL */
 #map {
     height: 100vh;
     width: 100%;
+    z-index: 1;
 }
 
-/* Container für das Popup */
-.popup-content {
-    min-width: 220px;
-    padding: 5px;
-}
-
-/* Überschrift im Popup */
-.popup-content h3 {
-    margin: 0 0 10px 0;
-    color: var(--dark-blue);
-    font-size: 1.1rem;
-    font-weight: 700;
-    letter-spacing: -0.5px;
-}
-
-/* Fließtext im Popup */
-.popup-content p {
-    margin: 6px 0;
-    line-height: 1.6;
-    color: var(--text-main);
-    font-size: 0.95rem;
-}
-
-/* Button/Link-Sektion */
-.social-links {
-    margin-top: 15px;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-}
-
-.social-links a {
-    text-decoration: none;
-    font-size: 13px;
-    font-weight: 500;
-    color: white;
-    background-color: var(--primary-red); /* Hier das gewünschte Rot */
-    padding: 6px 12px;
-    border-radius: 6px;
-    transition: all 0.2s ease-in-out;
-    display: inline-block;
-}
-
-.social-links a:hover {
-    background-color: #c0392b;
-    transform: translateY(-1px);
-    box-shadow: 0 4px 8px rgba(231, 76, 60, 0.3);
-}
-
-/* Leaflet spezifische Anpassungen für mehr Modernität */
-.leaflet-popup-content-wrapper {
-    border-radius: 12px !important;
-    box-shadow: var(--shadow) !important;
-}
-
-.leaflet-popup-tip {
-    box-shadow: var(--shadow) !important;
-}
-/* Neuer Header-Style */
 .main-title {
     position: absolute;
     top: 20px;
@@ -85,45 +31,36 @@ body {
     z-index: 1000;
     margin: 0;
     padding: 10px 25px;
-    
-    /* Schrift in Rot */
     color: var(--primary-red); 
     font-size: 2rem;
     font-weight: 800;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    
-    /* Hintergrund: Leicht durchsichtiges Weiß */
     background-color: rgba(255, 255, 255, 0.6); 
-    backdrop-filter: blur(8px); /* Etwas stärkerer Blur für bessere Lesbarkeit */
-    
+    backdrop-filter: blur(8px);
     border-radius: 50px;
     box-shadow: var(--shadow);
     pointer-events: none;
-
+    text-transform: uppercase;
 }
-/* Kontakt Menü Container */
+
+/* 3. KONTAKT-MENÜ (OBEN RECHTS) */
 .contact-menu {
     position: absolute;
     top: 20px;
-    right: 20px; /* Oben rechts positioniert */
-    z-index: 1001; /* Höher als die Karte und der Titel */
-    display: inline-block;
+    right: 20px;
+    z-index: 1001;
 }
 
-/* Der Button selbst */
 .contact-btn {
     background-color: rgba(255, 255, 255, 0.7);
     color: var(--primary-red);
-    border: none;
+    border: 1px solid rgba(255, 255, 255, 0.3);
     padding: 10px 20px;
     border-radius: 50px;
     font-weight: 600;
     cursor: pointer;
     box-shadow: var(--shadow);
     backdrop-filter: blur(5px);
-    transition: all 0.3s ease;
-    border: 1px solid rgba(255, 255, 255, 0.3);
+    transition: all 0.3s;
 }
 
 .contact-btn:hover {
@@ -131,43 +68,103 @@ body {
     color: white;
 }
 
-/* Das versteckte Dropdown-Menü */
 .contact-content {
     display: none;
     position: absolute;
     right: 0;
-    top: 100%; /* Positioniert es direkt unter dem Container-Ende */
-    padding-top: 10px; /* Erzeugt eine unsichtbare Brücke zum Button */
-    background-color: transparent; /* Der Container selbst ist durchsichtig */
+    top: 100%;
+    padding-top: 10px;
     min-width: 160px;
-    z-index: 1001;
 }
 
-/* Neuer Wrapper für das Design innerhalb des Contents */
 .contact-content-inner {
-    background-color: rgba(255, 255, 255, 0.9);
+    background-color: rgba(255, 255, 255, 0.95);
     box-shadow: var(--shadow);
     border-radius: 12px;
     overflow: hidden;
     backdrop-filter: blur(10px);
 }
 
-/* Links im Menü */
 .contact-content a {
     color: var(--dark-blue);
     padding: 12px 16px;
     text-decoration: none;
     display: block;
     font-size: 14px;
-    transition: background 0.2s;
 }
 
 .contact-content a:hover {
-    background-color: rgba(231, 76, 60, 0.1);
+    background-color: rgba(139, 0, 0, 0.1);
     color: var(--primary-red);
 }
 
-/* Zeige das Menü beim Hovern über den Container */
-.contact-menu:hover .contact-content {
+
+.contact-content {
     display: block;
+}
+
+/* 4. MODAL (POPUP) STYLING */
+/* Erzwungenes Verstecken der Modals beim Laden */
+.modal {
+    display: none; 
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 9999; /* Sehr hoch, damit es über der Karte liegt */
+    background-color: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(5px);
+    justify-content: center; /* Zentriert horizontal */
+    align-items: center;     /* Zentriert vertikal */
+}
+
+/* Die weiße Box im Modal */
+.modal-content {
+    background-color: white;
+    padding: 30px;
+    border-radius: 20px;
+    width: 90%;
+    max-width: 500px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    position: relative;
+    color: #2d3436; /* Dunkle Schrift */
+}
+
+.close-btn {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 24px;
+    cursor: pointer;
+    color: #8b0000;
+}
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+}
+
+.form-group input, .form-group textarea {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    margin-top: 5px;
+}
+
+.submit-btn {
+    background: #8b0000;
+    color: white;
+    border: none;
+    padding: 12px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
 }
