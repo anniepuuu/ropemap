@@ -168,3 +168,17 @@ body, html {
     cursor: pointer;
     font-weight: bold;
 }
+.cta-button {
+    display: inline-block;
+    background-color: #8b0000;
+    color: white !important;
+    padding: 8px 16px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    margin-top: 5px;
+}
+
+.cta-button:hover {
+    background-color: #a50000;
+}

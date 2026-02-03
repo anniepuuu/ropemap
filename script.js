@@ -84,15 +84,16 @@ locations.forEach(loc => {
     
     let socialHTML = '';
     for (const [platform, url] of Object.entries(loc.social)) {
-        socialHTML += `<a href="${url}" target="_blank">${platform}</a>`;
+        // HIER DIE KLASSE 'cta-button' HINZUFÜGEN:
+        socialHTML += `<a href="${url}" target="_blank" class="cta-button">${platform}</a>`;
     }
 
     const content = `
         <div class="popup-content">
-            <h3>${loc.name}</h3>
+            <h3 style="margin-top:0; color: #8b0000;">${loc.name}</h3>
             <p>${loc.desc}</p>
             <p><strong>Kontakt:</strong><br>${loc.contact}</p>
-            <div class="social-links">${socialHTML}</div>
+            <div class="social-links" style="margin-top:15px;">${socialHTML}</div>
         </div>
     `;
 
